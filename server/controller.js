@@ -179,14 +179,12 @@ module.exports = {
               throw err;
             } else if (match) {
               console.log('Login successful', req.session);
-              req.session.user = user.username;
-              res.end('welcome to the session demo. refresh!')
-              // req.session.regenerate(function() {
-              //   console.log('login', user.user),
+              req.session.regenerate(function() {
+                console.log('login', user.user),
 
-                // req.session.cookie.user = user.username;
-                // res.send(req.session);
-              // });
+                req.session.user = user.username;
+                res.send(req.session);
+              });
             } else {
               console.log('Wrong password.');
               res.send(req.session.user);
