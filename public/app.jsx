@@ -40,7 +40,7 @@ class App extends React.Component {
         that.getCurrent();
         that.getLog();
       }
-    }, 10000);
+    }, 5000);
   }
 
   componentWillMount() {
